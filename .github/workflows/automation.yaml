@@ -1,8 +1,8 @@
 name: Webhook Automation
 
 on:
-  webhook:
-    types: [your-webhook-event]
+  catch-hook:
+    types: [email reply]
 
 jobs:
   automate:
@@ -26,3 +26,4 @@ jobs:
         SMARTLEAD_API_KEY: ${{ secrets.SMARTLEAD_API_KEY }}
         GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
         TEXT_NOTIFICATION_API_KEY: ${{ secrets.TEXT_NOTIFICATION_API_KEY }}
+
