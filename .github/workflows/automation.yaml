@@ -1,0 +1,28 @@
+name: Webhook Automation
+
+on:
+  webhook:
+    types: [your-webhook-event]
+
+jobs:
+  automate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Execute automation script
+      run: node automation.js
+      env:
+        SMARTLEAD_API_KEY: ${{ secrets.SMARTLEAD_API_KEY }}
+        GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        TEXT_NOTIFICATION_API_KEY: ${{ secrets.TEXT_NOTIFICATION_API_KEY }}
