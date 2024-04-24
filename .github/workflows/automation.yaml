@@ -1,9 +1,10 @@
 name: Webhook Automation
 
 on:
-  catch-hook:
-    types: [email reply]
-
+  push:
+    branches:
+      - main
+      
 jobs:
   automate:
     runs-on: ubuntu-latest
@@ -24,6 +25,9 @@ jobs:
       run: node automation.js
       env:
         SMARTLEAD_API_KEY: ${{ secrets.SMARTLEAD_API_KEY }}
-        GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+        GOOGLE_SHEET_API_KEY: ${{ secrets.GOOGLE_SHEET_API_KEY }}
         TEXT_NOTIFICATION_API_KEY: ${{ secrets.TEXT_NOTIFICATION_API_KEY }}
+        GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+        GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+
 
